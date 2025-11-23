@@ -55,7 +55,7 @@ def submit_founder():
 
     send_confirmation_email(founder.email, "Founder")
 
-    return redirect(url_for("main.founder_submitted"))
+    return render_template("success.html", role="Founder", avatar="founder.png")
 
 
 @main_bp.get("/founder_submitted")
@@ -88,7 +88,7 @@ def submit_designer():
 
     send_confirmation_email(designer.email, "Designer")
 
-    return redirect(url_for("main.designer_submitted"))
+    return render_template("success.html", role="Designer", avatar="designer.png")
 
 
 @main_bp.get("/designer_submitted")

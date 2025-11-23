@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,21 +8,34 @@
     <title>Your Match</title>
 </head>
 
-<body class="match-body">
+<body class="grid-bg">
 
-    <div class="match-card">
+    <div class="page-shell" style="display: flex; justify-content: center; align-items: center; min-height: 80vh;">
 
-        <img 
-            src="{{ url_for('static', filename='images/' + avatar) }}" 
-            alt="Match Avatar" 
-            class="match-avatar">
+        <div class="form-card" style="text-align: center; max-width: 500px; align-items: center;">
 
-        <div class="match-text">
-            <h1>You got a match!</h1>
-            <p class="match-role">{{ role }}</p>
+            <div
+                style="width: 80px; height: 80px; background: var(--accent-blue); color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 40px; margin: 0 auto 24px;">
+                ✓
+            </div>
+
+            <h1 class="form-title" style="font-size: 32px;">Submission Received!</h1>
+
+            <p class="form-sub" style="margin-bottom: 10px;">
+                You have successfully signed up as a <strong>{{ role }}</strong>.
+            </p>
+
+            <p style="opacity: 0.7; margin-bottom: 30px; line-height: 1.5;">
+                We’ve sent a confirmation email to your inbox.<br>
+                We'll be in touch as soon as we find a match!
+            </p>
+
+            <a href="/" class="submit-btn"
+                style="text-decoration: none; display: inline-block; width: auto; padding: 12px 32px;">Back to Home</a>
         </div>
 
     </div>
 
 </body>
+
 </html>
