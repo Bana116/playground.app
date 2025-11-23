@@ -33,6 +33,7 @@ def designer_form():
 # -------------------------
 
 @main_bp.post("/submit_founder")
+def submit_founder():
     try:
         form = request.form
 
@@ -68,6 +69,7 @@ def founder_submitted():
 
 
 @main_bp.post("/submit_designer")
+def submit_designer():
     try:
         form = request.form
 
