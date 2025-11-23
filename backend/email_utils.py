@@ -50,26 +50,30 @@ def send_match_email(receiver_email, partner):
 # 3. Shared SMTP Sender (Google App Password)
 # -----------------------------------------
 def send_smtp_email(message, recipient):
-    try:
-        with smtplib.SMTP(
-            current_app.config["MAIL_SERVER"],
-            current_app.config["MAIL_PORT"],
-        ) as server:
+    # Capture the real app object to pass to the thread
+    app = current_app._get_current_object()
 
-            server.starttls()
-            server.login(
-                current_app.config["MAIL_USERNAME"],
-                current_app.config["MAIL_PASSWORD"],
-            )
+    def _send_async(app, msg, rcpt):
+        with app.app_context():
+            try:
+                with smtplib.SMTP(
+                    app.config["MAIL_SERVER"],
+                    app.config["MAIL_PORT"],
+                ) as server:
+                    server.starttls()
+                    server.login(
+                        app.config["MAIL_USERNAME"],
+                        app.config["MAIL_PASSWORD"],
+                    )
+                    server.sendmail(
+                        msg["From"],
+                        [rcpt],
+                        msg.as_string(),
+                    )
+                print(f"✅ Email sent successfully to {rcpt}")
+            except Exception as e:
+                print("❌ EMAIL ERROR:", e)
 
-            server.sendmail(
-                message["From"],
-                [recipient],
-                message.as_string(),
-            )
-
-        print(f"✅ Email sent successfully to {recipient}")
-
-    except Exception as e:
-        print("❌ EMAIL ERROR:", e)
-        print("Email failed, but continuing normally...")
+    # Start the thread
+    from threading import Thread
+    Thread(target=_send_async, args=(app, message, recipient)).start()
