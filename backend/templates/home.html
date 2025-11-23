@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Project Playground</title>
+</head>
+
+<body class="grid-bg">
+
+    <div class="page-shell">
+        <!-- NAVIGATION -->
+        <nav class="nav">
+            <div class="logo">Project Playground</div>
+            <a href="#getmatched" class="match-btn">Get Matched</a>
+        </nav>
+
+        <!-- HERO -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="trusted">
+                    Trusted by founders & UX designers
+                </div>
+
+                <h1 class="hero-title">
+                    Explore. Design. <span class="highlight">Play!</span>
+                </h1>
+
+                <p class="subtext">
+                    Pair early-stage founders with human-first UX designers.
+                    No algorithms. No friction. Just real matches.
+                </p>
+
+                <div class="cta-buttons">
+                    <a href="/founder" class="cta founder">I’m a Founder</a>
+                    <a href="/designer" class="cta designer">I’m a Designer</a>
+                </div>
+            </div>
+
+            <div class="floating-cards">
+                <div class="card card-1">
+                    <div class="user">@Saas_founder</div>
+                    Got a UX partner in under 24 hours. Unreal.
+                </div>
+                <div class="card card-2">
+                    <div class="user">@Junior_ux</div>
+                    Landed 1 paid portfolio project after one match round.
+                </div>
+            </div>
+        </section>
+    </div>
+
+</body>
+</html>

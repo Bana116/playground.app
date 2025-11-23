@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Founder Profile</title>
+</head>
+
+<body class="grid-bg">
+<div class="page-shell form-shell">
+
+    <!-- Header -->
+    <h1 class="form-title">Founder Profile</h1>
+    <p class="form-sub">Tell us about your project so we can match you with the right UX designer.</p>
+
+    <form method="POST" action="/submit_founder" class="form-card">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Startup / Project Name</label>
+        <input type="text" name="project_name">
+
+        <label>Website (optional)</label>
+        <input type="text" name="website">
+
+        <label>What stage is your project at?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="stage" value="Idea stage"> Idea stage</label>
+            <label><input type="checkbox" name="stage" value="MVP in progress"> MVP in progress</label>
+            <label><input type="checkbox" name="stage" value="Post-launch"> Post-launch</label>
+            <label><input type="checkbox" name="stage" value="Internal tool"> Internal tool</label>
+        </div>
+
+        <label>What kind of design help do you need?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="design_need" value="UI Design"> UI Design</label>
+            <label><input type="checkbox" name="design_need" value="UX Research"> UX Research</label>
+            <label><input type="checkbox" name="design_need" value="Prototyping"> Prototyping</label>
+            <label><input type="checkbox" name="design_need" value="Branding"> Branding</label>
+            <label><input type="checkbox" name="design_need" value="Not sure"> Not sure</label>
+        </div>
+
+        <label>Team Tools (Figma, Slack, Notion…)</label>
+        <input type="text" name="team_tools">
+
+        <label>Is this a paid role?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="paid" value="Paid"> Paid</label>
+            <label><input type="checkbox" name="paid" value="Unpaid"> Unpaid / Collaborative</label>
+        </div>
+
+        <label>Which niche best fits your project?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="niche" value="E-commerce"> E-commerce</label>
+            <label><input type="checkbox" name="niche" value="SaaS"> SaaS</label>
+            <label><input type="checkbox" name="niche" value="Fintech"> Fintech</label>
+            <label><input type="checkbox" name="niche" value="Health"> Health</label>
+            <label><input type="checkbox" name="niche" value="Gaming"> Gaming</label>
+        </div>
+
+        <label>Hours per week</label>
+        <select name="hours">
+            <option value="1-3">1–3 hours</option>
+            <option value="3-5">3–5 hours</option>
+            <option value="5-10">5–10 hours</option>
+            <option value="Flexible">Flexible</option>
+        </select>
+
+        <label>How much support will the designer get?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="support" value="Regular check-ins"> Regular check-ins</label>
+            <label><input type="checkbox" name="support" value="Independent"> Mostly independent</label>
+        </div>
+
+        <button class="submit-btn" type="submit">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>
+

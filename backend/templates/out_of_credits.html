@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Out of Credits</title>
+</head>
+
+<body class="container">
+
+    <h2>You're Out of Match Credits 💔</h2>
+
+    <p class="subtitle">
+        You’ve used all your match opportunities.  
+        Grab more credits to keep matching with the best people.
+    </p>
+
+    <div class="purchase-box">
+
+        <h3>Buy More Credits</h3>
+        <p>Instant access. No sign-ups. No commitment.</p>
+
+        <div class="credit-options">
+            <div class="credit-card">
+                <h4>3 Matches</h4>
+                <p>$4.99</p>
+                <a href="/buy/3" class="btn">Buy Now</a>
+            </div>
+
+            <div class="credit-card">
+                <h4>10 Matches</h4>
+                <p>$12.99</p>
+                <a href="/buy/10" class="btn">Buy Now</a>
+            </div>
+        </div>
+
+    </div>
+
+    <a href="/" class="btn secondary">Back Home</a>
+
+</body>
+</html>

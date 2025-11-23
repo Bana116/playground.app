@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Designer Profile</title>
+</head>
+
+<body class="grid-bg">
+<div class="page-shell form-shell">
+
+    <h1 class="form-title">Designer Profile</h1>
+    <p class="form-sub">Tell us about your experience so we can match you with the right founder.</p>
+
+    <form method="POST" action="/submit_designer" class="form-card">
+
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
+
+        <label>Email</label>
+        <input type="email" name="email" required>
+
+        <label>Availability</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="availability" value="Start right away"> Start right away</label>
+            <label><input type="checkbox" name="availability" value="Summer start"> Available this summer</label>
+            <label><input type="checkbox" name="availability" value="Not sure"> Not sure</label>
+        </div>
+
+        <label>Location</label>
+        <input type="text" name="location">
+
+        <label>Portfolio or LinkedIn</label>
+        <input type="text" name="portfolio">
+
+        <label>Your current focus</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="focus" value="UI Designer"> UI Designer</label>
+            <label><input type="checkbox" name="focus" value="UX Designer"> UX Designer</label>
+            <label><input type="checkbox" name="focus" value="UX Researcher"> UX Researcher</label>
+            <label><input type="checkbox" name="focus" value="Exploring"> Still exploring</label>
+        </div>
+
+        <label>Areas you want to gain experience in</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="interest" value="Mobile App Design"> Mobile App Design</label>
+            <label><input type="checkbox" name="interest" value="Web Design"> Web Design</label>
+            <label><input type="checkbox" name="interest" value="Design Systems"> Design Systems</label>
+            <label><input type="checkbox" name="interest" value="Not sure"> Not sure</label>
+        </div>
+
+        <label>Are you open to unpaid volunteer experience?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="volunteer" value="Yes"> Yes</label>
+            <label><input type="checkbox" name="volunteer" value="Maybe"> Maybe</label>
+            <label><input type="checkbox" name="volunteer" value="No"> No</label>
+        </div>
+
+        <label>Which niche interests you?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="niche" value="E-commerce"> E-commerce</label>
+            <label><input type="checkbox" name="niche" value="Fashion"> Fashion</label>
+            <label><input type="checkbox" name="niche" value="EdTech"> EdTech</label>
+            <label><input type="checkbox" name="niche" value="SaaS"> SaaS</label>
+            <label><input type="checkbox" name="niche" value="Health"> Health</label>
+            <label><input type="checkbox" name="niche" value="Fintech"> Fintech</label>
+        </div>
+
+        <label>Tools you’re comfortable with</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="tools" value="Figma"> Figma</label>
+            <label><input type="checkbox" name="tools" value="Notion"> Notion</label>
+            <label><input type="checkbox" name="tools" value="Slack"> Slack</label>
+        </div>
+
+        <label>Your Figma experience</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="figma_level" value="Beginner"> Beginner</label>
+            <label><input type="checkbox" name="figma_level" value="Intermediate"> Intermediate</label>
+            <label><input type="checkbox" name="figma_level" value="Confident"> Confident</label>
+        </div>
+
+        <label>Would you like UX resources?</label>
+        <div class="chip-group">
+            <label><input type="checkbox" name="resources" value="Yes"> Yes</label>
+            <label><input type="checkbox" name="resources" value="Maybe"> Maybe</label>
+            <label><input type="checkbox" name="resources" value="No"> No</label>
+        </div>
+
+        <label>Anything else?</label>
+        <textarea name="extra"></textarea>
+
+        <button class="submit-btn" type="submit">Submit</button>
+    </form>
+
+</div>
+</body>
+</html>

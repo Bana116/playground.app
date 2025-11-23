@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Your Match</title>
+</head>
+
+<body class="match-body">
+
+    <div class="match-card">
+
+        <img 
+            src="{{ url_for('static', filename='images/' + avatar) }}" 
+            alt="Match Avatar" 
+            class="match-avatar">
+
+        <div class="match-text">
+            <h1>You got a match!</h1>
+            <p class="match-role">{{ role }}</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

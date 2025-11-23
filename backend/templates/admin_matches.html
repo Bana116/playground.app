@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Admin • All Matches</title>
+</head>
+
+<body class="container">
+
+<h2>All Matches</h2>
+<p class="subtitle">Every match created between founders and designers.</p>
+
+{% if matches %}
+    <div class="admin-list">
+        {% for match in matches %}
+            <div class="admin-card">
+                <h4>Match #{{ match.id }}</h4>
+
+                <p><strong>Founder:</strong> {{ match.founder.full_name }}  
+                <br><span class="email">{{ match.founder.email }}</span></p>
+
+                <p><strong>Designer:</strong> {{ match.designer.full_name }}  
+                <br><span class="email">{{ match.designer.email }}</span></p>
+
+                <p class="timestamp">Match Date: {{ match.timestamp if match.timestamp else "—" }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% else %}
+    <p>No matches yet.</p>
+{% endif %}
+
+<a href="/" class="btn secondary">Back Home</a>
+
+</body>
+</html>
