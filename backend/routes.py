@@ -33,29 +33,33 @@ def designer_form():
 # -------------------------
 
 @main_bp.post("/submit_founder")
-def submit_founder():
-    form = request.form
+    try:
+        form = request.form
 
-    founder = Founder(
-        full_name=form.get("full_name"),
-        email=form.get("email"),
-        project_name=form.get("project_name"),
-        website=form.get("website"),
-        stage=",".join(form.getlist("stage")),
-        design_need=",".join(form.getlist("design_need")),
-        team_tools=form.get("team_tools"),
-        paid=",".join(form.getlist("paid")),
-        niche=",".join(form.getlist("niche")),
-        hours=form.get("hours"),
-        support=",".join(form.getlist("support")),
-    )
+        founder = Founder(
+            full_name=form.get("full_name"),
+            email=form.get("email"),
+            project_name=form.get("project_name"),
+            website=form.get("website"),
+            stage=",".join(form.getlist("stage")),
+            design_need=",".join(form.getlist("design_need")),
+            team_tools=form.get("team_tools"),
+            paid=",".join(form.getlist("paid")),
+            niche=",".join(form.getlist("niche")),
+            hours=form.get("hours"),
+            support=",".join(form.getlist("support")),
+        )
 
-    db.session.add(founder)
-    db.session.commit()
+        db.session.add(founder)
+        db.session.commit()
 
-    send_confirmation_email(founder.email, "Founder")
+        send_confirmation_email(founder.email, "Founder")
 
-    return render_template("success.html", role="Founder", avatar="founder.png")
+        return render_template("success.html", role="Founder", avatar="founder.png")
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return f"Internal Server Error: {str(e)}", 500
 
 
 @main_bp.get("/founder_submitted")
@@ -64,31 +68,35 @@ def founder_submitted():
 
 
 @main_bp.post("/submit_designer")
-def submit_designer():
-    form = request.form
+    try:
+        form = request.form
 
-    designer = Designer(
-        full_name=form.get("full_name"),
-        email=form.get("email"),
-        availability=",".join(form.getlist("availability")),
-        location=form.get("location"),
-        portfolio=form.get("portfolio"),
-        focus=",".join(form.getlist("focus")),
-        interests=",".join(form.getlist("interest")),
-        volunteer=",".join(form.getlist("volunteer")),
-        niche=",".join(form.getlist("niche")),
-        tools=",".join(form.getlist("tools")),
-        figma_level=",".join(form.getlist("figma_level")),
-        resources=",".join(form.getlist("resources")),
-        extra=form.get("extra"),
-    )
+        designer = Designer(
+            full_name=form.get("full_name"),
+            email=form.get("email"),
+            availability=",".join(form.getlist("availability")),
+            location=form.get("location"),
+            portfolio=form.get("portfolio"),
+            focus=",".join(form.getlist("focus")),
+            interests=",".join(form.getlist("interest")),
+            volunteer=",".join(form.getlist("volunteer")),
+            niche=",".join(form.getlist("niche")),
+            tools=",".join(form.getlist("tools")),
+            figma_level=",".join(form.getlist("figma_level")),
+            resources=",".join(form.getlist("resources")),
+            extra=form.get("extra"),
+        )
 
-    db.session.add(designer)
-    db.session.commit()
+        db.session.add(designer)
+        db.session.commit()
 
-    send_confirmation_email(designer.email, "Designer")
+        send_confirmation_email(designer.email, "Designer")
 
-    return render_template("success.html", role="Designer", avatar="designer.png")
+        return render_template("success.html", role="Designer", avatar="designer.png")
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return f"Internal Server Error: {str(e)}", 500
 
 
 @main_bp.get("/designer_submitted")
